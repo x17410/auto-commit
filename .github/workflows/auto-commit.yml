@@ -17,5 +17,7 @@ jobs:
           git config --local user.name "haha"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
-          git commit --allow-empty -m "auto-commit"
-          git push
+          echo "auto-commit" >> README.md
+          git add .
+          git commit -m "auto-commit"
+          git push -f
